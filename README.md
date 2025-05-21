@@ -1,49 +1,33 @@
-# medikal.inonu.edu.tr
+Bu proje İnönü Üniversitesi Bilgisayar mühendisliği öğrencileri ile Tıp Fakültesi öğrencilerini, doktorları buluşturmayı temel edinen bir projedir. Proje esasında öğrencilerin yapay zeka entegreli çözümsel modüllerinin sisteme belirli testlere tabii kalarak yüklemesi ve doktorların ve tıp öğrencilerin bu modülleri kullanarak daha kolay bir çalışma ortamına sahip olmalarını hedeflemektedir.
 
-İnönü Üniversitesi Bilgisayar Mühendisliği öğrencileri ve arkadaşlarımız tarafından doktorlarımız için geliştirilen [medikal.inonu.edu.tr](https://medikal.inonu.edu.tr) platformunun resmi deposuna hoş geldiniz. Modern ihtiyaçlara uygun olarak tasarlanan ve yapay zeka destekli analiz araçlarıyla güçlendirilmiş sağlık platformumuzu gururla sunuyoruz.
+Kullanılan Teknolojiler
+Python
+Django
+Bootstrap
+Html - css - JavaScript
+PostgreSQL
+Celery
+RabbitMQ
+IIS
+Tanıtım
+Kategorize edilmiş bir ana sayfa ile kullanıcı kullanmak istediği modüle rahatlıkla ulaşabilmektedir. image
 
-## 🚀 Yapay Zeka ve Sağlık Teknolojilerini Birleştiren Platform!
-Yapay zeka destekli analiz araçlarıyla güçlendirilmiş platformumuz, sağlıkta yapay zeka üzerine kullanıcı dostu arayüzüyle dikkat çekiyor. İşte sistemimizin öne çıkan sayfaları ve işlevleri:
+Sisteme giriş yapan öğrencilerin modüllerini görebileceği, düzenleyebileceği, silebileceği bir projelerim sayfası. image
 
-### 1️⃣ 📂 Modül Ekleme Sayfası:
-- Yapay zekalarını geliştiren öğrenciler, ekip sayfasından oluşturulan grup ID’sine göre yeni modüller ekleyebilirler.
-- Yükleme sırasında modülün adı, açıklaması, resim dosyaları ve gerekli yapay zeka model dosyaları (PY, PTH, H5) seçilir.
-- Modül ekleme işlemi hem kolay hem de detaylı bir kullanıcı deneyimi sunar.
+Öğrencilerin ekleyecekleri modüllerin problemsiz çalışması için önceden test ettirilmesini sağlayan bir code test sayfası. Bu sayfaya öğrenciler kodlarını ve yapay zekalarını yüklüyorlar ve eğer problemsiz bir şekilde çalışıyor ise modülleri sisteme yükleniyor aksi halde terminalden düzenlemeleri gerekiyor. image
 
-### 2️⃣ 🗂 Modüllerim Sayfası:
-- Kullanıcılar, kendi yükledikleri modülleri görüntüleyip grup ID’sine göre düzenleyebilirler.
-- Her modül, adı, açıklaması ve resim dosyalarıyla birlikte görsel olarak sunulur.
-- Düzenleme veya silme seçenekleri doğrudan bu sayfadan kullanılabilir.
+Öğrenciler eğer iki kişilik bir ekip halince çalışacaklar ise projeye iki kişinin de düzenleyebilmesi için bir ekip oluşturmaları geerekmektedir bunun için de ekip oluşturma sayfası bulunmaktadır. image
 
-### 3️⃣ 🤝 Ekip Yönetim ve Davet Sayfası:
-- Kullanıcılar ekip oluşturabilir veya bireysel çalışmayı seçebilirler.
-- Bir ekip oluşturulduğunda, grup ID’si oluşturulur ve bu ID, modül ekleme sayfasında kullanılır.
-- Gelen ve gönderilen davetler detaylı şekilde listelenir.
+Ana sayfadan çalıştırılmak istenen modül seçildikten sonra eğer 3 boyutlu bir çıktı vericekse ona uygun eğer iki boyutlu bir çıktı vericekse ona uygun dosya yüklenir ve işlem sırasına girer burda işlem sırasını celery ile sağladık. image
 
-### 4️⃣ 🖥 3D Görüntüleme Sayfası:
-- Kullanıcıların yüklediği 3D model dosyaları interaktif olarak görselleştirilir.
-- Kullanıcılar, model üzerinde döndürme, yakınlaştırma ve detaylı inceleme işlemlerini gerçekleştirebilirler.
-- Sağlık alanında analiz süreçlerini hızlandıracak bir araç sunulur.
+Gönderilen işlemin başarılı, başarısız ya da daha işlemde olduğunu gösteren bir sonuç sayfamız vardır bu sayfa kullanıcı id sine özeldir ve bir kullanıcının yaptığı işlem sadece onda gözükür bunun yanında herkses açık da işlem yapılabilir. image
 
-### 5️⃣ 📊 2D Görüntü İşleme Sayfası:
-- Diş ve diğer tıbbi röntgen görüntüleri üzerinde lezyon tespiti gibi işaretleme işlemleri yapılabilir.
-- Yüklenen görüntülerde alınan Json verileri ile dikdörtgen, poligon ve çizgi işaretlemeleri interaktif olarak kullanıcıya sunulur.
+-Çıkan sonuç 2 farklı şekilde gösterilmektedir ilk gönderilen ham görüntü ve teşhis edilen sonuç. Bunların yanında eğer kullanıcı görsel üzerinde bir işaretleme yapmışsa bu bir json ile aktarılmakta ardından görsele çizilmektedir eğer istersek bunu sayfa üzerinden açıp kapatabiliriz. image image
 
-### 6️⃣ 🔒 Yetkili Paneli: Öğrenci Kayıt Yönetimi:
-- Kullanıcıların sisteme kayıt olma talepleri yetkili tarafından onaylanabilir.
-- Onaylanan kullanıcılar sisteme eklenirken, gereksiz kayıt talepleri silinebilir.
-- Kayıt talepleri tablo şeklinde sunulur ve işlemler tek tıkla yapılabilir.
-
-### 7️⃣ ⚙️ Yetkili Paneli: Modül Yönetimi:
-- Yetkililer, tüm gruplar tarafından yüklenen modülleri görüntüleyip düzenleme yetkisine sahiptir.
-- Modüller, grup ID’sine göre filtrelenebilir ve erişim yetkileri açılıp kapatılabilir.
-- Örneğin, bir grup tarafından yüklenen modül "aktif" veya "pasif" durumuna alınabilir. vb. birçok özellik...
-
-## 🚀 Teknolojiler ve İnovasyon:
-- **Backend:** Python Django, RabbitMQ, Celery
-- **Frontend:** Bootstrap, Html, CSS, JS tabanlı modern tasarım
-- **Görüntü İşleme:** Yapay zeka destekli segmentasyon algoritmaları (MONAI, U-Net)
-
-Daha fazla bilgi ve platformu keşfetmek için [medikal.inonu.edu.tr](https://medikal.inonu.edu.tr) adresini ziyaret edin.
-
-Depomuzu ziyaret ettiğiniz için teşekkür ederiz!
+Genel işlemlerin kontrolü, sisteme kayıt olacak öğrencilerin ayarlanması, projelerin kontrolü, derslerin seçilmesi ve değiştirilmesi, kategorilerin eklenmesi silinmesi ya da sıralanması gibi işlemler için bir admin paneli bulunmakta işlemlerin kısayla özetlemek gerekirse.
+Öğrenci Listeleme: Sisteme kaydolacak öğrencilerin listesi bir excel tablosu ile yüklenir ve bu öğrenciler aldıkları derse göre kategori edilir ve sadece bu dersler için modül yükleyebilirler ya da sadece modül çalıştırabilirler. Aynı zamanda sonradan öğrenci ekleme ve silme işlemleri yapılabilmektedir
+Projeler: Projelerin listelenebileceğii düzenlenebileceği, silinebileceği bir sayfadır aynı zamanda aktif-pasif yapılabilmektedir pasif durumda bulunan bir modül ana sayfada gözükmemektedir.
+Ders işlmeleri: Dersleri ekleme, silme, düzenleme işlemlerinin yapıldığı sayfadır.
+Kategori işlemleri: Modül kategorilerinin eklenme, silme, değiştirme işlemlerinin yapıldığı sayfadır aynı zamanda sıralarının da ayarlandığı bir kategori sayfasıdır. image
+Genel
+Proje aktif şekilde kullanılmaktadır ve uzun yıllar kullanılmaya devam edecektir. Dönemsel projelerin yapılması ve yönetilmesi açısından kolaylıklar sağlamaktadır. 3 ay gibi bir süreçte yapılan bu proje aynı zamanda benim bitirme projemdir. Kullanıcı deneyimlerine göre geliştirme yaptığım bu süreçte tamamen kullanıcı kolaylığına odaklandım ve buna göre eklemeler çıkarmalar yaptım, özelleştirmeleri tamamen kullanıcının rahat edebileceği şekilde yaptım.
